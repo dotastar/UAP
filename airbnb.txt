@@ -1,5 +1,5 @@
 Airbnb电面是在一个类似于LeetCode的网站写完直接运行test的，test还是在main函数里自己写，不是像LeetCode那样自动test
-
+https://hellosmallworld123.wordpress.com/2015/09/04/abnb-%E9%9D%A2%E7%BB%8F%E6%80%BB%E7%BB%93/
 电面
 
 1. CSV Reader/ Parse an escaped string into csv format. 举个例子，给定一个CSV文件，格式是 “some_name|some_address|some_phone|some_job”，要求输出Json format “{name:some_name, address:some_addres,phone:some_phone, job:some_job}”
