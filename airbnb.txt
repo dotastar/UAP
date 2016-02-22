@@ -1,7 +1,22 @@
+Airbnb电面是在一个类似于LeetCode的网站写完直接运行test的，test还是在main函数里自己写，不是像LeetCode那样自动test
+
+电面
+
+1. CSV Reader
+2. Given a 2-D int array, write an iterator that traverses it   from left to right and top to bottom. The iterator has 2 methods - boolean hasNext() and int next(). The array can have rows of different sizes, so for e.g. 1, 2, 4, 5 5, 6 <null/empty>, 10, 40, 50 The 2D int array was represented as ArrayList<ArrayList<Integer>>().
+3.  Given An array of strings where "L" indicates land and "W" indicates water, and a coordinate marking a starting point in the middle of the ocean
+4. palindrome pair
+5. 不相邻的range 求和最大 [check-in date, check-out date/ check-in date, check-out date/ check-in date,….]求最多能租出去几天。
+6. 给一个整数数组，求不相互挨着的数字可以想加得到的最大和
+
+
+
+
 上来直接做题，Leetcode原题：
 Text Justification
 
-CSV Reader
+
+Phone - 1 CSV Reader
 /*
 John,Smith,john.smith@gmail.com,Los Angeles,1
 Jane,Roberts,janer@msn.com,"San Francisco, CA",0
@@ -74,87 +89,10 @@ int main() {
     return 0;    
 }
 
-电面
 
-不相邻的range 求和最大 [check-in date, check-out date/ check-in date, check-out date/ check-in date,….]求最多能租出去几天。
+PHONE - 2
 
-
-Onsite
-
-Project Deep Diving
-
-Behavior Cultural Fitting
-
-Code: WordBreak 不许用brute force.
-
-Code: Text Justification
-
-Ping server: output the timestamp offset
-
-首先是三个技术面：
-1） Alien Dictionary (leetcode 上要钱题)
-http://www.cnblogs.com/jcliBlogger/p/4758761.html
-2） Text Justification
-3） 写echo TCP client， 向面试官的server发请求， 读回数据。地里比较少人说这种， 我来详细说一下， 情境是这样的： 想象你开车， 踩下油门，车会加速，放开油门，车会减速。 client向server发的请求有以下2种： （a）STATUS –表示查询现在车的速度和踩下踏板的压力； （b）THROTTLE 50.1 — 这条指令是“THROTTLE” 加上一个数字， 表示我现在将踩油门的压力调为50.1
-
-EXAMPLE: 比如在telnet中
-STATUS
-0.0 0.0 (这行是server返回的， 第一个数字表示压力，第二个数字表示速度)
-THROTTLE 50.1 (这个指令发出 server没有返回)
-STATUS
-50.1 3.75 (可以看到速度在缓慢上升)
-STATUS (过几秒后，你又发STATUS指令过去)
-50.1 15.98 (速度依旧上升。。。)
-
-对就是这样，像是简单物理实验。
-
-写完TCP client后，要求是写一个方法将速度控制到达一个target speed
-
-最后一个问题是求这个 delta力 和 delta速度 之间的函数关系。。。。。。。。醉了。我物理还给老师了。。。。。。时间不够了
-
-希望可以帮助到大家！！！
-
-补充内容 (2016-1-14 00:55):
-补充一下core value面：
-1）what bring you to airbnb?
-2) what can you teach your co-workers after you get in?
-3) describe a person whom you admire most
-4) describe your experience with airbnb
-
-补充内容 (2016-1-14 00:55):
-5) where have you been to?
-6) what will you do if you win a lottery such as Powerball?
-7) what is the biggest fear in your life?
-8) how do describe Airbnb to a people back to 2003?
-
-补充内容 (2016-1-14 00:56):
-9) if you have a book that writes about your whole life, will you read it? why?
-10) if you have a time machine, and you can either go back or go forth, will you choose to go back or to go forth?
-
-补充内容 (2016-1-14 00:56):
-11) among all the features of airbnb, what do you want to improve?
-
-补充内容 (2016-1-14 00:57):
-就这么多了~想起来再加~大家觉得有用就给我加米哈
-
-补充内容 (2016-1-14 12:59):
-12) 描述一件你当时觉得非常risky的事情，你是怎么做的，结果如何
-
-
-
-
-
-
-
-
-
-给一个2d array，要求写一个顺序访问这个2d array的Iterator，包括hasNext()与
-next()。注意2d array的每行中元素的个数可能不一样，也可能为空。followup是写一
-个remove()，注意是remove当前item，不是下一个item。
-要求code能运行。也没有bug free，bug fix得比较快，还是给onsite了。跪求版上面
-过airbnb的大牛们的面经，包括culture fit的问题，可站内，多谢了！
-
- Given a 2-D int array, write an iterator that traverses it   from left to right and top to bottom. The iterator has 2 methods - boolean hasNext() and int next(). The array can have rows of different sizes, so for e.g. 1, 2, 4, 5 5, 6 <null/empty>, 10, 40, 50 The 2D int array was represented as ArrayList<ArrayList<Integer>>().
+Given a 2-D int array, write an iterator that traverses it   from left to right and top to bottom. The iterator has 2 methods - boolean hasNext() and int next(). The array can have rows of different sizes, so for e.g. 1, 2, 4, 5 5, 6 <null/empty>, 10, 40, 50 The 2D int array was represented as ArrayList<ArrayList<Integer>>().
  
  http://blog.dreasgrech.com/2010/03/javas-iterators-and-iterables.html
  
@@ -316,46 +254,18 @@ class AirBnB1 {
 	}
 }
 
- 
- 
- 
- Given An array of strings where "L" indicates land and "W" indicates water, and a coordinate marking a starting point in the middle of the ocean
+PHONE - 3
+Given An array of strings where "L" indicates land and "W" indicates water, and a coordinate marking a starting point in the middle of the ocean
 The Challenge:
 Find and mark the ocean in the map by changing appropriate W's to O's. An ocean coordinate is defined to be any coordinate directly adjacent to any other ocean coordinate.
 https://github.com/naveen-tirupattur/Interviews/blob/master/Interviews/src/my/interview/samples/AirBnB.java
-
-A：基本都是面经里出现过得题，感觉他家的题库比较小。coding只有两轮，但是如果
-没跑出结果就肯定挂。另外他们家比较注重culture fit。最后有两轮扯淡的
-1. 聊项目
-2. 设计machine learning系统
-3. Word ladder II
-4. Alien dictionary
-5&6. culture fit 扯淡
-
-
-
-
-
-
-
-text justification
-meeting room 找T1-T2内所有人空的时间段
-alien dictionary
-都要compile run
-两轮culture各种无厘头~~~
-
-
-
-
-
-palindrome pair (店面啊)
-Airbnb: Palindromic pair of a list of strings
+ 
+ 
+Phone - 4. Palindromic pair of a list of strings
 Given a list of strings, find all the palindromic pairs of the string and output the concatenated palindrome.
 
 e.g. [abc, cba], output is abccba, cbaabc.
 e.g. [aabc, cb], output is cbaabc
-
-
 
 Understand the problem:
 The brute-force solution to this problem is very simple. For each word, we search all the others and see if it can form a palindrome. Assume that the ave. length of each word is m and there are totally n words in the list, the time complexity would be O(n^2 * m). 
@@ -484,37 +394,145 @@ public class Solution{
 }
 
 
-A (Airbnb)
+PHONE -5 
+给一个数组代表reservation request，suppose start date, end date back to back.
+比如[5,1,1,5]代表如下预定：
+Jul 1-Jul6
+Jul6-Jul7
+Jul7-Jul8
+jul8-Jul13
+当然最开始那个Jul 1是随便选就好的啦。
+现在input的意义搞清楚了。还有一个限制，就是退房跟开始不能是同一天，比如如果接了Jul 1-Jul6，Jul6-Jul7就不能接了。那问题就是给你个数组，算算最多能把房子租出去多少天。这个例子的话就是10天。
+[4,9,6]=10
+[4,10,3,1,5]=15
+思路是用DP，我解题的code：
+private static int getMax(int[] requests){
+int len=requests.length;
+8 b0 C6 q8 t% Z5 y) S: B2 j* y
+int first=0;
+int second=0;
+for(int i=0;i int temp=Math.max(requests+first,second);
+first=second;
+second=temp;
+}
+return second;
+}
 
-1. 2D array, 访问顺序必须是‘回’字的方式，就是从外圈转到里圈，写出class,
+===================================================================
+===================================================================
+===================================================================
+
+
+
+
+Onsite
+
+1. 
+Project Deep Diving
+
+Behavior Cultural Fitting
+
+Code: WordBreak 不许用brute force.
+
+Code: Text Justification
+
+Ping server: output the timestamp offset
+
+首先是三个技术面：
+1） Alien Dictionary (leetcode 上要钱题)
+http://www.cnblogs.com/jcliBlogger/p/4758761.html
+2） Text Justification
+3） 写echo TCP client， 向面试官的server发请求， 读回数据。地里比较少人说这种， 我来详细说一下， 情境是这样的： 想象你开车， 踩下油门，车会加速，放开油门，车会减速。 client向server发的请求有以下2种： （a）STATUS –表示查询现在车的速度和踩下踏板的压力； （b）THROTTLE 50.1 — 这条指令是“THROTTLE” 加上一个数字， 表示我现在将踩油门的压力调为50.1
+
+EXAMPLE: 比如在telnet中
+STATUS
+0.0 0.0 (这行是server返回的， 第一个数字表示压力，第二个数字表示速度)
+THROTTLE 50.1 (这个指令发出 server没有返回)
+STATUS
+50.1 3.75 (可以看到速度在缓慢上升)
+STATUS (过几秒后，你又发STATUS指令过去)
+50.1 15.98 (速度依旧上升。。。)
+
+对就是这样，像是简单物理实验。
+
+写完TCP client后，要求是写一个方法将速度控制到达一个target speed
+
+最后一个问题是求这个 delta力 和 delta速度 之间的函数关系。。。。。。。。醉了。我物理还给老师了。。。。。。时间不够了
+
+希望可以帮助到大家！！！
+
+补充内容 (2016-1-14 00:55):
+补充一下core value面：
+1）what bring you to airbnb?
+2) what can you teach your co-workers after you get in?
+3) describe a person whom you admire most
+4) describe your experience with airbnb
+
+补充内容 (2016-1-14 00:55):
+5) where have you been to?
+6) what will you do if you win a lottery such as Powerball?
+7) what is the biggest fear in your life?
+8) how do describe Airbnb to a people back to 2003?
+
+补充内容 (2016-1-14 00:56):
+9) if you have a book that writes about your whole life, will you read it? why?
+10) if you have a time machine, and you can either go back or go forth, will you choose to go back or to go forth?
+
+补充内容 (2016-1-14 00:56):
+11) among all the features of airbnb, what do you want to improve?
+
+补充内容 (2016-1-14 00:57):
+就这么多了~想起来再加~大家觉得有用就给我加米哈
+
+补充内容 (2016-1-14 12:59):
+12) 描述一件你当时觉得非常risky的事情，你是怎么做的，结果如何
+
+
+
+2.
+A：基本都是面经里出现过得题，感觉他家的题库比较小。coding只有两轮，但是如果
+没跑出结果就肯定挂。另外他们家比较注重culture fit。最后有两轮扯淡的
+1). 聊项目
+2). 设计machine learning系统
+3). Word ladder II
+4). Alien dictionary
+5&6). culture fit 扯淡
+
+
+3. 
+text justification
+meeting room 找T1-T2内所有人空的时间段
+alien dictionary
+都要compile run
+两轮culture各种无厘头~~~
+
+
+
+4.
+1). 2D array, 访问顺序必须是‘回’字的方式，就是从外圈转到里圈，写出class,
 Iterator, hasNext(), next().
-2. 电话号码和计费的一个log, 去parse 看规定时间内哪个号码产生费用最高。
-3. leetcode anagram 的一题变种
-4. 有很多个sorted queue存在不同服务器上，如何有效的读取到一个 sorted 大queue
+2). 电话号码和计费的一个log, 去parse 看规定时间内哪个号码产生费用最高。
+3). leetcode anagram 的一题变种
+4). 有很多个sorted queue存在不同服务器上，如何有效的读取到一个 sorted 大queue
 里 (google也面到了这题）
-5. 设计db, 如何存取房东和房客的reviews, 如何maintain他们之间的关系。
+5). 设计db, 如何存取房东和房客的reviews, 如何maintain他们之间的关系。
 
 Airbnb确实和大家说得一样面试官很nice, 内部装潢笔格明显很高，非常酷炫.
 offer: 160k + 5000股／2年 ＝ 260k
 
 
+5.
 
-好久以前的忘记发出来了。
+1). boggle game, 但是呢比如你现在走了一个词apple, 那么a, p, p, l, e这几个char的位置不能继续用了。于是给你一个board, 一个dict让你计算最多能有多少个valid单词出现在这个Board上面
 
-电面： nested iterator, follow-up: remove function
-
-onsite:
-
-1. boggle game, 但是呢比如你现在走了一个词apple, 那么a, p, p, l, e这几个char的位置不能继续用了。于是给你一个board, 一个dict让你计算最多能有多少个valid单词出现在这个Board上面
-
-2.
+2).
 john’s travel city: a1 a2 c2 h8 j9
 tom’s travel city: b1 a1 c3 z5
 kate travel city: a2 a1 h8 x8
 
 给你一个人john, 以及他的一堆朋友，让你计算出来和他travel的city相似度大于75%的所有朋友，并且根据这个相似度对朋友排序
 
-3. 给一组meetings（每个meeting由start和end时间组成）。求出在所有输入meeting时间段内没有会议，也就是空闲的时间段。
+3). 给一组meetings（每个meeting由start和end时间组成）。求出在所有输入meeting时间段内没有会议，也就是空闲的时间段。
 每个subarray都已经sort好
 举例：
 [
@@ -525,15 +543,14 @@ kate travel city: a2 a1 h8 x8
 返回
 [[4, 6], [7, 9]]
 
-4. behavior: 要表现爱bnb
+4). behavior: 要表现爱bnb
 
-5. behavior: 要表现爱bnb
+5). behavior: 要表现爱bnb
 
 饭不是很好吃，最后被拒。
 
 补充内容 (2015-12-9 15:25):
 那个第一题，我现在还没明白怎么做才是对的。第二题应该是要倒排索引。
-
 
 rd list 和一个target word，要求输出在word list 里跟target 
 word的edit distance 相差不大于k的所有words。我写了一个基于edit distance的解
@@ -543,82 +560,15 @@ word的edit distance 相差不大于k的所有words。我写了一个基于edit 
 link: http://www.mitbbs.com/article_t/JobHunting/32692817.html
 
 
-Airbnb是和Pinterest背靠背面的。当时由于Pinterest面得不好的缘故，压力非常大。
-在这要大大赞一下我Airbnb的recruiter, 他是我见过最好的recruiter, 没有之一。每
-一轮面试，包括电面完了以后，他都给我提供非常详细的反馈，比如说code写的不错，
-面试官对我聊天的某个细节印象深刻等等。在面试的当天早上，当他得知我头天的
-Pinterest没有面好，还专门花了半小时陪我逛Airbnb总部大楼，让我放松下来。面试
-的安排上也尽量做到technical 和non-technical session 间隔开以便我有时间放松。
-Airbnb面试需要强调一下的是coding不用白板。电面是在一个类似于leetcode 的网站
-上直接写code (有一些关键词高亮，但没有函数auto completion 和报错提示), 而
-onsite则是给你一台有eclipse的电脑，要求编译通过并能通过面试官提供的测试例子
-。我电面碰到的是一个白人小哥，刚毕业没多久，code题算法很简单但是比较考一些
-edge case的处理。过程中聊得很开心。反馈回来说小哥直接给了strong signal, 免第
-二轮电面onsite。Onsite总共有7轮：两轮culture fit, 两轮 coding, 两轮system 
-design, 一轮 project deep dive。 过程就不再累述了。Coding 题非leetcode 原题
-但属于中等难度。System design 主要是结合Airbnb网站自己的feature 来问。中间有
-一个插曲：我第一个coding 的面试官来晚了15分钟，后来又花了大概10分钟setup 电
-脑，题目出得也比较偏，以至于我最后没能完成code。好在我面试之后及时把情况反映
-给了recruiter, 他调查属实以后，加上我其他几轮的表现不错，给我争取到了加面两
-轮的机会。加面过程比较顺利，第一轮是白哥哥manager 问culture fit 和 behavior 
-question, 顺利过。第二轮直接上来考coding, 超水平发挥，写了大概80~90行程序一
-次编译运行通过。得到两个strong signal后拿到offer。
+6. 
 
-
-1. regex match, slightly complicated version of http://leetcode.com/2011/09/regular-expression-matching.html
-2. find maxium square inside a sqaure, similar to http://stackoverflow.com/questions/1726632/dynamic-programming-l
+1). regex match, slightly complicated version of http://leetcode.com/2011/09/regular-expression-matching.html
+2). find maxium square inside a sqaure, similar to http://stackoverflow.com/questions/1726632/dynamic-programming-l
 argest-square-block
-3. edit distance
+3). edit distance
 
 
-
-A家的题目跟Leetcode不是一个概念。
-属于给你一个问题，你把model给出来，再写出代码，run，需要看到正确结果。
-Coding interview考察点是：Can you illustrate the big picture of the problem?
-Can you make something run?
-
-Culture轮因人而异，有的人有3轮的。因为Airbnb是strong culture company，面试官
-会从各个角度试探面试者的性格特征，包括旁敲侧击询问你跟朋友之间的愉快经历。最
-好去看看A家CEO做的采访，对于“文化”的定义和意义。
-
-
-最近面了airbnb，确实如前辈大牛所言，题目本身不难，但是要求固定时间内机器完成
-，run出正确结果．第一次如此面，很不适应．第一个such case，差几分钟没出正确结
-果．好在是个国人老兄，估计没有就此刁难．在此致谢一把．还有就是passion非常重
-要，所是tech公司中，behavior interview分量最重的．由于签了nda，就不说原题了
-．就summary一下：实际生活中code能力+好的behavior interview+system design 
-skills．
-现在被告知拿到了offer，但是package还不知道．如果知道了，会这里update一下．一
-个很重要的问题，他家的business model到底如何？本来觉得市场比uber大，但是最近
-试了both，觉得还是比不上：uber的user experience完全beat传统taxi，可见的将来
-能够kill 传统taxi．而airbnb的user experience，很多时候比不上hotel．这个是指
-combine price and quality．比如一个地方，hotel要２００，airbnb只是１２０，但
-是加上cleaning fee，service fee，价钱差不多，而且cancellation policy比hotel
-严格很多，干净程度以及location多半不如．不清楚这个business model能不能一直
-work．感觉可见的将来，依然是hotel business的皮毛，远远不可能kill hotel 
-business．
-
-
-给一个2d array，要求写一个顺序访问这个2d array的Iterator，包括hasNext()与
-next()。注意2d array的每行中元素的个数可能不一样，也可能为空。followup是写一
-个remove()，注意是remove当前item，不是下一个item。
-要求code能运行。也没有bug free，bug fix得比较快，还是给onsite了。跪求版上面
-过airbnb的大牛们的面经，包括culture fit的问题，可站内，多谢了！
-
-
-题目：难度一般，很多字典和字符串的题目，多leetcode变体，代码量相对大
-要求：在电脑上写，能把给出的不算刁钻的test case跑对
-安排：电面一轮，onsite 6轮（3轮coding + 1轮project deep dive + 2轮culture 
-fit）
-特点：1. 面试官把标准答案记得很清楚，需要在写之前把思路细节讲清楚并优化到最
-优，能少用一点空间就少用一点，即使不能在数量级上产生影响。2. culture fit很独
-特但也没有十分刁难，喜欢了解他们商业模式，爱学新东西，有common sense的人
-
-
-
-Screen
-网申一天后，小编收到HR电话，约定第一个电话面试时间。三天后，电面开始。面试官是一个美国人，很利索的自我介绍，然后马上进入Coding。题目是关于如何Parse csv file：举个例子，给定一个CSV文件，格式是 “some_name|some_address|some_phone|some_job”，要求输出Json format “{name:some_name, address:some_addres,phone:some_phone, job:some_job}”。输入内容中有些特殊符号要注意处理，这个面试官会提醒。小编的感觉，这道题目的重点是Bug free code，另外面试者需要在30分钟内完成代码，并且编译运行。最后面试官会用几个Test case来测试面试者的代码是否有问题。因此其实A家的电面难度并不低，应该用准备Onsite的标准对待。
-Onsite
+7. 
 由于小编在和HR聊天的时候告知自己的选择窗口比较紧，所以电面当天下午收到Onsite通知。简短截说：A家的Onsite一共有七轮，前五轮每轮四十五分钟，后两轮是三十分钟的culture fit.
 第一轮遇到一位亚裔姑娘。主要就是聊天，考察以前做过的项目。面试官会慢慢深入，展开问项目细节和个人贡献。具体的项目回答心得在上篇博客中有详细讨论。由于准备比较充分，所以这轮比较轻松。
 第二轮是美国面试官，主要考察系统设计：设计一个distributed cache. 回答这类题目需要对分布式系统有一定了解，小编觉得以下几点是需要讲清楚的：
@@ -636,6 +586,7 @@ Reflection
 小编感觉A家的面试主要有两个重点：Bug free code and culture fit. 三轮Coding越快写完越有利，很多面试官有Follow-up question，都做出来的话对拿Offer很有帮助。系统设计题，面试官问的非常详细，最好仔细看看类似题目的讨论（关注包子博客是必须的）。多插一句，有的面试官比较拽，态度不是很好，遇到这种情况，个人心态要处理好，不要着急，更不要get defensive，好好做题是关键！整体来看，A家办公条件非常Fancy，Work-life balance应该也不错，每个季度有500刀的Airbnb credit，鼓励员工使用Airbnb旅游。Offer package整体上中规中矩，如果认同A家的文化和愿景，这是一个很理想的可以改变世界的地方。
 
 
+8.
 Airbnb的题目往往都很啰嗦，其实简单几句话就可以概括的。要求代码写完了能够编译，然后自己写测试用例并跑过。感觉这样的好处是的确很考察代码功力，那种当场一次bug free，然后跑几个测试用例全过的感觉很爽。不好的地方是容易增加变数，因为即使自己本身水平不变，不同时候发挥略有差异，检查一两个bug用的时间可能就没机会做后面的follow up了。
 第一轮实现分页显示。给了以下一些输入数据，要求将以下行分页显示，每页12行，其中每行已经按score排好序，分页显示的时候如果有相同host id的行，则将后面同host id的行移到下一页。
 [
@@ -677,40 +628,7 @@ Airbnb的题目往往都很啰嗦，其实简单几句话就可以概括的。�
 他家的题目感觉除了第二轮实现起来简单，其它的题目都要写不少代码，45分钟码完bug free的确不简单。
 
 
-Airbnb，
-Phone Interview 09/23
-给一个整数数组，求不相互挨着的数字可以想加得到的最大和
-简单动归，半小时也差不多，不过不知道第二天直接受到拒信，发邮件求reconsider还被回复there is no feed back，楼主欲哭无泪，被dream company拒成这个样子也是醉了。。另外提一句，这一家的HR phone screen好像也比较重要，听说过几个同学跟HR聊了之后就没有下文的，所以各位同学还是注意一下。
-
-
-题目：
-给一个数组代表reservation request，suppose start date, end date back to back.
-比如[5,1,1,5]代表如下预定：
-Jul 1-Jul6
-Jul6-Jul7
-Jul7-Jul8
-jul8-Jul13
-当然最开始那个Jul 1是随便选就好的啦。
-现在input的意义搞清楚了。还有一个限制，就是退房跟开始不能是同一天，比如如果接了Jul 1-Jul6，Jul6-Jul7就不能接了。那问题就是给你个数组，算算最多能把房子租出去多少天。这个例子的话就是10天。
-[4,9,6]=10
-[4,10,3,1,5]=15
-思路是用DP，我解题的code：
-private static int getMax(int[] requests){
-int len=requests.length;
-8 b0 C6 q8 t% Z5 y) S: B2 j* y
-int first=0;
-int second=0;
-for(int i=0;i int temp=Math.max(requests+first,second);
-first=second;
-second=temp;
-}
-return second;
-}
-评论：move on到下一轮phone interview了。想必大家听说过Airbnb是在一个类似于LeetCode的网站写完直接运行test的，test还是在main函数里自己写，不是像LeetCode那样自动test。这个题我叙述的时候已经把很多没有用的废话去掉了，当时他讲给我的时候还有各种废话，把题意弄懂大概花了10min。然后刚开始我老想用greedy，浪费了一些时间。想到dp之后不知道怎么脑子打结又迷糊了半天，后来只剩15min才想清楚，6min写完code，4min写test并直接全对，剩五分钟瞎聊了一会儿。最惊险的一次电面。这思路回头再看是非常简单。
-
-
-Airbnb: phone screen #1: 不相邻的range 求和最大 [check-in date, check-out date/ check-in date, check-out date/ check-in date,….]求最多能租出去几天。
-phone screen #2: waived.
+9.
 Airbnb: onsite #1. Project Deep Diving
 onsite #2. Behavior Cultural Fitting
 onsite #3. Code: WordBreak 不许用brute force.
@@ -718,12 +636,6 @@ onsite #4. Code: Text Justification
 onsite #5. Ping server: output the timestamp offset
 Dropbox: Given a pattern and a string input – find if string follows the same pattern and return 0 or 1. Examples: 1) Pattern : “abba”, input: “redblueredblue” should return 1. 2) Pattern: “aaaa”, input: “asdasdasdasd” should return 1. 3) Pattern: “aabb”, input: “xyzabcxzyabc” should return 0.
 先给你有空格的版本：例如 pattern: “a a a a” input : “asd asd asd asd” 后给你没空格的版本：例如 Pattern: “aaaa”, input: “asdasdasdasd”
-
-
-Airbnb，
-Phone Interview 09/23
-给一个整数数组，求不相互挨着的数字可以想加得到的最大和
-简单动归，半小时也差不多，不过不知道第二天直接受到拒信，发邮件求reconsider还被回复there is no feed back，楼主欲哭无泪，被dream company拒成这个样子也是醉了。。另外提一句，这一家的HR phone screen好像也比较重要，听说过几个同学跟HR聊了之后就没有下文的，所以各位同学还是注意一下
 
 
 Edit Distance
