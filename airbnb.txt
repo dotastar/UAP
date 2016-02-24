@@ -18,6 +18,8 @@ Alexandra "Alex"|Menendez|alex.menendez@gmail.com|Miami|1
 2. Given a 2-D int array, write an iterator that traverses it   from left to right and top to bottom. The iterator has 2 methods - boolean hasNext() and int next(). The array can have rows of different sizes, so for e.g. 1, 2, 4, 5 5, 6 <null/empty>, 10, 40, 50 The 2D int array was represented as ArrayList<ArrayList<Integer>>().
 3.  Given An array of strings where "L" indicates land and "W" indicates water, and a coordinate marking a starting point in the middle of the ocean
 4. palindrome pair
+Given a list of unique words. Find all pairs of indices (i, j) in the given list, so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
+http://lcoj.tk/problems/palindrome-pairs-dietpepsi-draft/
 5. 不相邻的range 求和最大 [check-in date, check-out date/ check-in date, check-out date/ check-in date,….]求最多能租出去几天。
 给一堆租房的request，作为输入数组，找一个array subset，其中任意两个元素不能相邻，（因为要打扫房间），求使得子集里所有元素之和最大。一维DP解之，另外可以使用滚动数组让空间开销为常数。
 6. 给一个整数数组，求不相互挨着的数字可以想加得到的最大和
