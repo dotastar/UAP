@@ -75,7 +75,11 @@ depending on the language) if not, implement a new method decodeFind(String
 badEncStr) which takes a string and returns the decoded int id.
 
 
-11. 上来直接做题，Leetcode原题：
+11.
+K Sum I && II – Lintcode Java k sum closest
+http://blog.welkinlan.com/2015/08/20/k-sum-i-ii-lintcode-java/
+
+12. 上来直接做题，Leetcode原题：
 Text Justification
 
 
