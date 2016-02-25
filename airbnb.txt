@@ -21,9 +21,8 @@ Alexandra "Alex"|Menendez|alex.menendez@gmail.com|Miami|1
 Given a list of unique words. Find all pairs of indices (i, j) in the given list, so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
 http://lcoj.tk/problems/palindrome-pairs-dietpepsi-draft/
 5. 不相邻的range 求和最大 [check-in date, check-out date/ check-in date, check-out date/ check-in date,….]求最多能租出去几天。
-给一堆租房的request，作为输入数组，找一个array subset，其中任意两个元素不能相邻，（因为要打扫房间），求使得子集里所有元素之和最大。一维DP解之，另外可以使用滚动数组让空间开销为常数。
-6. 给一个整数数组，求不相互挨着的数字可以想加得到的最大和
-7. 第一轮实现分页显示。给了以下一些输入数据，要求将以下行分页显示，每页12行，其中每行已经按score排好序，分页显示的时候如果有相同host id的行，则将后面同host id的行移到下一页。
+给一堆租房的request，作为输入数组，找一个array subset，其中任意两个元素不能相邻，（因为要打扫房间），求使得子集里所有元素之和最大。一维DP解之，另外可以使用滚动数组让空间开销为常数。(给一个整数数组，求不相互挨着的数字可以想加得到的最大和)
+6. 第一轮实现分页显示。给了以下一些输入数据，要求将以下行分页显示，每页12行，其中每行已经按score排好序，分页显示的时候如果有相同host id的行，则将后面同host id的行移到下一页。
 
 
 
