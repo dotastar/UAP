@@ -25,10 +25,28 @@ http://lcoj.tk/problems/palindrome-pairs-dietpepsi-draft/
 6. 第一轮实现分页显示。给了以下一些输入数据，要求将以下行分页显示，每页12行，其中每行已经按score排好序，分页显示的时候如果有相同host id的行，则将后面同host id的行移到下一页。
 
 
+7. 基础知识  ??
+输入URL会怎么样，我把知道的全部说了，比如说DNS怎么工作，Cache怎么工作，Page Rendering. 
+数据库查询慢为啥，怎么解决。Index，只能想到这个。 
+DNS 工作原理，顺便扯了一些如何用DNS做Load balancing以及location定位 
+Cookie相关知识，顺便说了一些设计到的privacy 
+8. coding 
+扫雷游戏。一个n*m棋盘，要我随机放置k个地雷，然后将棋盘根据扫雷规则把棋盘用数字填满。最后问了时间复杂度，因为是随机的，所以不太会分析，给了一个best case. 最后问了如何测试，我扯了白盒黑盒测试。就是那些code coverange啊，input partition什么的。 
+
+9.
+/*
+Given an array of numbers A = [x1, x2, …, xn] and T = Round(x1+x2+… +xn). 
+We want to find a way to round each element in A such that after rounding we get a new array B = [y1, y2, …., yn] such that y1+y2+…+yn = T where yi = Floor(xi) or Ceil(xi), ceiling or floor of xi.
+We also want to minimize sum |x_i-y_i|
+*/
+x1 can be double or float也行。然后还要考虑正负。
+先将所有的x取floor， 然后T - sum（floor（x）） 得到多少个x需要ceil
+2. 按照小数部分将数组排序，从大到小ceil，其他的floor。 最后就是想要的结果。
+负数的时候 －1.9 ->(c) -1  => 0.9; -1.9 -> (f) -2 => 0.1   => 用0.1来算ceiling
 
 
 
-上来直接做题，Leetcode原题：
+10. 上来直接做题，Leetcode原题：
 Text Justification
 
 
@@ -347,7 +365,55 @@ PHONE- 6
 这题的思路不难，但是实现起来还是有点难度的。在遍历的时候需要维护一个LinkedHashMap作为page并且完成去重。用LinkedHashMap的好处是可以保证所有的entry是按插入的顺序排序的，所以仍然可以保证按score排序的性质。另外，一旦遇到相同的host_id，则将其对应的行存到另一个buffer里。由于需要变遍历边增减容器里的数据，需要用ListIterator，并调用remove和add方法。之前只用过remove，从来没用过add。
 
 
-
+9.
+public class Float_Ceil_or_Floor {
+	// 思路就是先把所有floor加起来，然后看差多少，然后把多少个floor转成ceil
+	// 转的时候按照num本身与ceil的距离排序
+	public static int[] getNearlyArrayWithSameSum(double[] arr) {
+		NumWithDiff[] arrWithDiff = new NumWithDiff[arr.length];
+		double sum = 0.0;
+		int floorSum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			int floor = (int)arr[i];
+			int ceil = floor;
+			if (floor < arr[i]) ceil++; // 查是不是4.0这种floor/ceil都是本身的
+			floorSum += floor;
+			sum += arr[i];
+			arrWithDiff[i] = new NumWithDiff(ceil, ceil - arr[i]); // 把ceil都放在数组里面进行比较
+		}
+		int num = (int) Math.round(sum);
+		int diff = num - floorSum;
+		Arrays.sort(arrWithDiff, new Comparator() {
+			public int compare(NumWithDiff n1, NumWithDiff n2) {
+				if (n1.diffWithCeil <= n2.diffWithCeil) return -1;
+				else return 1;
+			}
+		});
+		int[] res = new int[arr.length];
+		int i = 0;
+		for (; i < diff; i++) {
+			res[i] = arrWithDiff[i].num; // 这些放ceil
+		}
+		for (; i < arr.length; i++) {
+			res[i] = arrWithDiff[i].num - 1; // 剩下的只放floor
+		}
+		return res;
+	}
+	public static void main(String[] args) {
+		double[] arr = { 1.2, 3.7, 2.3, 4.8 };
+		int[] res = getNearlyArrayWithSameSum(arr);
+		for (int i : res) System.out.print(i + " ");
+		
+	}
+}
+class NumWithDiff {
+	int num;
+	double diffWithCeil;
+	public NumWithDiff(int n, double c) {
+		this.num = n;
+		this.diffWithCeil = c;
+	}
+}
 
 
 
