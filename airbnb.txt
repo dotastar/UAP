@@ -445,4 +445,29 @@ class NumWithDiff {
 }
 
 
+10.
+string decode(string encStr);
+// string in C++ is not an object, so it cannot return NULL. I assume it return empty string if the encStr is not decodable. 
 
+string decodeFind(string &s, int i) {
+    if (i == s.length()) 
+        return decode(s);
+
+    string decStr;
+
+    decStr = decode(s);
+    if (decStr.length())
+        return decStr;
+
+    s[i] = tolower(s[i]);
+    decStr = decodeFind(s, i+1);
+    if (decStr.length())
+        return decStr;
+
+    s[i] = toupper(s[i]);
+    decStr = decodeFind(s, i+1);
+    if (decStr.length());
+        return decStr;
+
+    return ""; 
+}
