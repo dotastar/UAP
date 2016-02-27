@@ -38,7 +38,7 @@ We also want to minimize sum |x_i-y_i|
 x1 can be double or float也行。然后还要考虑正负。
 先将所有的x取floor， 然后T - sum（floor（x）） 得到多少个x需要ceil
 2. 按照小数部分将数组排序，从大到小ceil，其他的floor。 最后就是想要的结果。
-负数的时候 －1.9 ->(c) -1  => 0.9; -1.9 -> (f) -2 => 0.1   => 用0.1来算ceiling
+负数的时候 看code，不用区别对待
 
 8.
 Given a method decode(testEncStr) which will return the decoded int id if testEncStr is decodeable or will throw an exception (or return null) if not, implement a new method decodeFind(String badEncStr) which takes a string and returns the decoded int id
