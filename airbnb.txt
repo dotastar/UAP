@@ -41,8 +41,10 @@ x1 can be double or float也行。然后还要考虑正负。
 负数的时候 看code，不用区别对待
 
 8.
-Given a method decode(testEncStr) which will return the decoded int id if testEncStr is decodeable or will throw an exception (or return null) if not, implement a new method decodeFind(String badEncStr) which takes a string and returns the decoded int id
-Often, we want to encode raw IDs in our database by hiding them behind some 
+Given a method decode(testEncStr) which will return the decoded int id if testEncStr is decodeable or will throw an exception
+(or return null) if not, implement a new method decodeFind(String badEncStr) which takes a string and returns the decoded int id
+Often, 
+we want to encode raw IDs in our database by hiding them behind some 
 2-way decodeable hash. So, a URL which would have at one time been:
 
 Needs 50 credits to show a link.
