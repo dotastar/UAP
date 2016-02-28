@@ -70,6 +70,19 @@ Cookie相关知识，顺便说了一些设计到的privacy
 12. 上来直接做题，Leetcode原题：
 Text Justification
 
+13./1' Edit Distance
+
+// cats //
+// carts add 26*4 = 104
+// cat deletion 3
+// bats modification  78
+
+// dict = [ "cat", "bat", "batt", "beetle" ]
+
+// similar(string q) => words from dic that are <= 1 edit distance from q
+// similar("bat") => ["cat", "bat", "batt"]
+
+
 
 Phone - 1 CSV Reader
 /*
