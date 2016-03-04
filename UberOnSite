@@ -1,1 +1,178 @@
 
+1.
+上周面的 两天之后通知offer了 非常震惊 应该是聊得太好了
+四轮 前三轮 都是先聊聊聊 然后问一两道很简单的题 记得的有
+design excel 就大概写了下 描述了怎么实现function和dependenc
+sprial matrix(是的 我还debug了好一会）
+happynumber（是的 真的很简单是吧）
+最后一轮manager 也是聊聊聊 然后在白板上画了他们组的architecture 让我figure out 他们过年出的一个问题的potential reason
+可能还有不记得了 但题目真的很简单 大多数时间都在聊天
+
+=========================================================================================================================
+
+2.
+1. 国人哥们，典型的问了问以前以前做的什么，然后上题目，说一个未排序的整数数组，找出所有的inversion，就是位置大但是value小的情况。例如：
+
+9， 10， 1， 4， 100
+
+那么应该返回4
+
+先给了最白痴的解法，也就是n平方时间复杂度，然后主动提出可以优化，发现可能需要排序，然后被提示说先试试merge sort，忘记了，想了一会，现自己动手写一个，没写对，后来被提示说可以用递归，没时间了，把merge的顺序搞颠倒了，应该先二分逐步递归，想反了。
+
+2. 国人老板问了问behavior问题，主要侧重你为什么要离开原来的公司，现在流行的hadoop调度体系结构区别等等。的这个问题被后面很多人多次问到，要小心，很容易掉进坑里。
+
+3. 一个国人和一个印度人
+印度人很低调，问了以前做的东西，还在apache上查了一下，发现俺没说谎后，开始问题目：
+一个字母矩阵，和一个str，如何找出可能的矩阵路径组成这个str，并打印出来，其中每步只能往上下左右走。
+首先确认了用recursion不会exhaust内存，然后解释了算法，把matrix变成邻接表，需要一个global变量来存之前走过的路径，被提示到没必要换成邻接表，不需要global 变量，需要个vector就好了。然后考虑到如果要倒回去，需要清理现有的vector。中间他们给提示错了，俺更正了一下，勉强psuedo code坑吧的写完了，
+
+4. bar raiser，别的组的一个白人和一个印度人
+先问你以前做了什么，最坑的时问你以前做的最失败的东西时什么。还着重扣你如何协调公司和个人的关系，为什么离开原来公司，尤其印度人比较恶心，用你刚回答的问题的答案，来反问你。俺没忍住，有点睁大眼睛跟丫郑重地说，说觉得至少信任链是公司和员工之间维系关系的纽带，公司欺骗了你，你当然有权利表示不同意见，如果不能解决，离开可以是备选项之一。后来白人开始问code题目。说给一个密码，然后给一个hashtable，里面是密码的字母的各种变体，要找出所有的可能的密码组合。又是一个recursion。给了最基本的解法，先处理第一个字母，然把密码第一个字母砍掉，剩下的recursion
+
+followup是如果并行化，俺是做并行化的，就扯了些并行化的基本方法和思路，说，这个问题有数据依赖，所以如果并行化，要么需要数据冗余，要没需要通信，就选了每个节点处理一个字母的变体，然后broadcast给所有节点，每个节点收到后要做相应的升级和重计算，最后reduce到一个节点上。白板上写的有点乱，白人没听见broadcast，说也是recursive，俺有点晕了。解释了broadcast后
+
+5 bar raiser 2 电面的国人哥们和一个印度人
+问系统设计题目，因为俺是做后台的，所以被问到streaming的问题，和application level的tricks有点迷失方向。让设计一个能够现实某个区域有多少出租车的汇报系统。从司机的信息接收端开始。先说可以用storm，可是却是不熟悉，就改了spark－streaming，并说明spark-streaming的两个主要缺点：1.microbatch不balance，有的处理事件长，有的短，没有流控；2. 容易漏掉关键事件；
+
+前段5-10个server足以确认了QPS是10k／s，然后每个server根据timestamp写给hdfs，spark-streaming 负责pickup 数据，处理后送给后端的RDBMS，存在表里以供查询，处理完后，把hdfs处理过的数据周期性的删除掉，分析了可能的bottleneck在前段server写给HDFS时候，因为可能造成很多小文件，还有就是HDFS是基于disk的，可以加上tachyon做内存缓存。烙印问你怎么在HDFS上存数据。我靠对俺来说，这可问到了，俺就说，要提高HDFS的performance，需要1.JBOD或是RAID5，这样可以物理上提高硬盘的读写速度，2.合并小文件，并减少replication到2个。烙印说，你可以把文件按照时间顺序存储，个人感觉，他是做BI的，是从文件的逻辑结构考虑，俺考虑的是block level，鸡同鸭讲。
+
+还问了如何优化RDBMS的表，俺不是做数据库的，老实承认了，只给了简单的分表方法，如果表太大。说的国人大哥都打瞌睡了。心中很是尴尬。
+
+总体感觉，很少见到这么多国人的组，挺好的，中国人团结互助才能生存下去。估计是
+被烙印黑了，算了，move on，题刷几遍再说吧。
+
+=========================================================================================================================
+
+3.
+  1. 聊项目 + design dropbox
+  2. Design uber eat
+  3. Design uber
+  4. Coding: (1)给一个数组求不相邻元素所能组成的最大和; (2)给一个binary tree求
+  不相邻元素所能组成的最大和。数字都可正可负。
+  5. hiring manager 扯淡
+
+=========================================================================================================================
+
+  
+4.
+1. blocking queue, 然后讨论了一下多线程, 锁. why uber (这一轮那个面试官迟到了15分钟)..
+2. N-ary tree serialize and deserialize.
+3. LRU cache
+4. 在一个binary search tree里面有两个node互相swap过, 找出来这个两个node并且改成swap之前的tree. why uber
+
+code都是bug free, 个人感觉面的已经很好了,,结果还是挂了, 不知道是什么原因….跟HR发信息没有回复我, 后来是另外一个HR告诉我挂了.也没有给feedback…
+
+=========================================================================================================================
+
+5.
+1.1 anagrams，秒了。
+1.2 input String“123@gmail.com…we23–898##job@uber.com^^^2134nn..uber@
+hello.edu.cn”
+output 返回所有合理的address。java写到后来没写完，但是思路被认可。
+2. input(String[] str1, String[] str2) 返回match str2里任一个的所有str1中的
+元素（白板）。比如说str2是“hiw”，“abc”； str1是“hiw2”，“3hiw”， “
+def”，“abc1”，应该返回“hiw2”，“3hiw”，“abc1”。这题交流不顺畅，写出
+来一种方法，他看半天不懂，解释了半天，他似懂非懂，又说我的方法不efficient，
+最后我似乎明白他要考啥，我说了一个treemap来解决的办法，他说ok，没时间再写
+code了，也不知道是不是真的ok。
+
+3. 聊messaging system，聊背景。考了个algorithm题。一个array，返回一个最短
+subarray，其sum是target。我说brutal force可解，但time O（n^2），应该还有更好
+的方法，憋了好久没办法，后来给了提示才想到，用个hashMap，把从第一个元素开始
+，任一元素解释的sum hash了，，再从第一个开始累积accu_sum，看
+有没有accu_sum + target在hashtable的。 于是写了code，被告知ok。
+
+4. manager聊天，聊背景，聊知识。
+
+=========================================================================================================================
+
+5.
+Onsite 12/10: Uber Growth Driving Experience Team
+1. AutoComplete
+Given WordDict = {“San Diego”, “San Francisco”, “Oakland”, …}
+实现String[] autocomplete(String input)， e.g input = “san” , 返回[“San Diego”, “San Francisco”]
+
+2. Design Uber。。好吧。。
+
+3. Sudoku validate + solver
+
+4. Culture fit, manager
+
+其实没啥新题目，基本上Uber的coding和design题库都被大家挖的很彻底了。。报个供大家参考下。。。
+
+分享几个想法：
+0. 中间有一轮面试官是个国人大哥。。希望你看到这篇帖子别生气啊=。=
+1. Uber整体环境高大上，里面工位比较挤，面试过程中4个小时我观察到一个coding小哥就没离开过座位。。一直扣。。
+2. 因为Growth team所以谈了一下growth，Manager说海外最大的市场是india和中国，其中india的市场基本完蛋了做不下去了。。
+中国的市场market share从0% – 25%，这个仁者见仁吧。。大家都懂。。然后我顺便问了下和快滴/滴滴怎么竞争。
+。manager说它们净抄我们，我们总有新idea，总会比他们快。
+3. 今天了解到Uber除了在做Uber这个软件之外，还在做很多很新鲜很有意思的项目，比如:XXX,XXX 这个感觉有点商业机密吧，
+不好透露 有兴趣可以私信聊下或者自己问面试官哈
+4. Uber每周release一次，整个产品迭代的速度很快，而且每个人都能真正参与到开发中，
+感觉个人的发展潜力和公司的潜力都是大大滴！绝对适合广大有志青年， 而且本土商业模式很好，
+待开发的feature也很多（比如最近Uber小猫等等。。）
+5. Uber面试官反馈很快。。三轮当场给了positive的评价（还有一轮Sudoku我也不知道啊-。-
+一开始ABC小哥听不懂 做完感觉讲起来好费劲）Anyway结果也不重要啦反正已签别家。。。
+6. 感谢2个月以来广大朋友和父母的支持以及地里各位无私奉献面经的童鞋，祝大家都有一个理想的offer，final全A+ :)
+
+=========================================================================================================================
+
+
+6.
+一场manager纯聊天，两场coding。主要是想发一道题，之前从来没有遇到过，以供大家学习。
+一个2d matrix，每个cell是一个integer，给出一个submatrix左上和右下的坐标和这个matrix，求这个submatrix的所有integer的和。实现这个函数，这个函数会被call很多次。
+这个比较简单，接下来有所改动，matrix每个cell的值不停在变，怎么办？
+. visit 1point3acres.com for more.用四叉树分割平面的方法。matrix不断一分为四，每个submatrix再一分为四，节点是四个孩子的和。这样不断去更新与读取。
+=========================================================================================================================
+7.
+1. manager — why uber, 现在的uber有什么问题，有什么解决方案，基本排序算法知道哪些，如何排序，适用哪些情况，复杂度，白板写快排，如何评价你代码的质量（正确性，维护性）
+2. 中国小哥加白人shadow — why uber，实习介绍，算法：01矩阵，1代表陆地0代表水，找被陆地围起来的水（lake）的数量。BFS递归写完，问如果数据量比较大可能有什么问题–爆栈，解决–用queue写迭代
+3. 感觉是美国长大的印度小哥，完全无口音 — 实习介绍，system design：design Uber 主要集中在dispatch service上。基本把design相关概念都问了一遍：sharding, consistent hashing, load balancing, caching (write back, write through, write around) 如何scale等等。因为之前把Uber的整个技术架构都扒了一遍，反复查过其中的细节，所以基本都答出来了。
+
+其实onsite感觉面的不太好，尤其第一轮manager考基本排序时脑子一抽没有把时间复杂度答好，快排也不知道是不是bug free，心情很郁闷。但当天因为有个面试官没有来，所以之后几天收到邮件说再加一轮电面，庆幸没有直接被拒，又狂刷了一周的面经。
+
+加面：介绍project+why uber。course schedule II. 输入是JSON但不用考虑parsing。基本的拓扑排序。但是自己太紧张，想套leetcode，在处理输入上花了很久（其实自己一开始的想法最简单，lc的输入反而麻烦……）幸好面试官人算nice，耐心听我解释完。代码写出来测试过了，但感觉也不太好。。。三四天后收到通知说过了，庆幸……
+
+=========================================================================================================================
+
+8.
+1. Project deepdive+design uber eat
+2. Design uber
+3. Coding: 给一颗二叉树，每一个节点有一个value，找出一堆不相邻的节点，使得他们value的和最大。节点之间有link就算相邻，比如parent和children
+4. Design auto suggest
+5. Rate limiter + culture fit
+
+
+=========================================================================================================================
+9.
+设计一个 data structure something like excel's cell.
+
+The cell has two types: value type and formula type (sum of other cells). My design is as below.
+
+Class Cell
+{
+rowId;
+ColId;
+type; //enum-> value or sum of other cells
+Value; //if type is value, this field is the value, otherwise
+meaningless
+List cell; // if type is forumla, the field is used to show which
+other cells are needed to sum
+}
+
+
+10.
+，中间老板带着吃午饭 5轮中必然有一轮是只讨论之前做过的project，要做好准备，
+一定要对自己之前做的东 西特别熟 另外我面试过程中问了不少怎么设计一个系统解决Uber实际问题这种题目，
+很新颖很有 意思 1. 问了我不少关于storm的问题，比如storm怎么保证exact once/at least once semantic，
+如何做timed window join，因为我简历上有相关的东西，然后让我用storm 来做一个比较简单的sliding window count。
+2. big integer multiplication，要求现场运行代码。 3. longest increasing subarray，longest increasing subpath 
+in a tree，path只 能从root到某个leaf 4. boggle game，given a boggle board and a dictionary，find all words on the board， 
+follow up，如果dictionay 不变但是board不停的变怎么优化 follow up，如果board不变但是dictionary不停的变怎么优化 
+5. given a matrix only containing 1 or 0，find how many rectangles are 4个角 都是1 
+6. how to design a system to automatically detect hotspot on geo graph, 
+a hotspot is an area such that 打车的request远多于available driver的数量 
+7. how to design a system to detect if dispatch algorithm has some bug， 
+dispatch主要是收集所有打车request和available driver的信息然后决定哪个driver 
+哪个客人 Onsite过后两个小时通知我有offer了，如果onsite过后一两天之内没通知的话，
+基本 上说明你的waiting list上，要等排在你前面的人据掉offer才可以继续下一步。 
