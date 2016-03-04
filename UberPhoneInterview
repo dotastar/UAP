@@ -93,3 +93,13 @@ sudoku solver。
 
 13.
 OOD card deck，要现场deug，需要能运行 
+
+14.
+第一轮： Happy number
+第二轮： 罗马数字 -> 阿拉伯数字
+两轮都是白人小哥，很Nice
+
+都是现题，写的快的话，会有比较多的Follow up。 
+比如第二题 HashMap的初始化，可以放在哪些不同的地方。
+可不可以不用Hashmap， 为什么要用Hashmap 等等
+对Uber要有一定了解，有问喜欢Uber的原因，哪些地方可以改进等等。
