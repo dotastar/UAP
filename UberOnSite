@@ -160,7 +160,7 @@ List cell; // if type is forumla, the field is used to show which
 other cells are needed to sum
 }
 
-
+=========================================================================================================================
 10.
 ，中间老板带着吃午饭 5轮中必然有一轮是只讨论之前做过的project，要做好准备，
 一定要对自己之前做的东 西特别熟 另外我面试过程中问了不少怎么设计一个系统解决Uber实际问题这种题目，
@@ -176,3 +176,14 @@ a hotspot is an area such that 打车的request远多于available driver的数�
 dispatch主要是收集所有打车request和available driver的信息然后决定哪个driver 
 哪个客人 Onsite过后两个小时通知我有offer了，如果onsite过后一两天之内没通知的话，
 基本 上说明你的waiting list上，要等排在你前面的人据掉offer才可以继续下一步。 
+
+=========================================================================================================================
+11.
+1. 国人大叔 人很好 一道system design。 一些general的问题 比如若是data model 和 profile model 要经常读取database 应该如何优化 (cache) 还讨论了一些其他的 有点忘记了 结束的时候 大致实现以下LRU cache.
+2. codepad coding, binary search tree insertion and deletion
+3. design a message system 先一起列出需要解决的case 然后讨论系统结构layout
+4. design uber carpool system 问你如何实现 在许多司机已经在跑的线路的情况下 获取当前request的最佳match 例如 你现在手机上Request carpool, 服务器会告诉你现在有的载人的司机线路图，要你在这些线路途中 找到最match的线路来carpool。 简化条件是 一辆车只载两个人。
+5. 国人 dev manager 随便聊聊 没聊什么实际的
+6. HR 介绍包裹和福利
+
+
