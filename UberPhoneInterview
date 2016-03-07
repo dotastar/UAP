@@ -122,3 +122,10 @@ OOD card deck，要现场deug，需要能运行
 这可是我刷得不多的几道题之一啊。这时时间快到了，让我问问题，我就问了优化到底怎么优化，面试官说了什么从四个角那开始，
 要先pre-process啊，巴拉巴拉， 不懂啥意思（还是自己太渣）。就挂了。不出意外，两天后收到邮件说挂了。
 哎，感觉国人大叔还是挺好的，没咋为难我，还是自己基础和题刷得不够。继续刷题吧。
+
+面试的组是 uber backend growth supply
+电话面试： 一个国人小哥 人蛮好的
+1. distributed system 的概念 比如 什么是ACID
+2. search an element in a rotated array, no duplicates
+3. how to use computer to estimate the value of Pi (3.1415….)
+之后两个小时候 发onsite通知
