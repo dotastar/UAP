@@ -245,3 +245,6 @@ Baozi Tip
 第四轮：Coding + OO design (Design windows excel)
 
 这个主要是看OO design的功底，其实不难。Follow-up question: In excel, one cell can refer to other cells, if I update one cell, how do you update all the dependent cells？这个问题可以被转化成经典的Topological sort，所以这里就不详细展开啦，如果不知道可以看看算法书，或者关注包子博客之后的总结
+
+
+https://github.com/UmassJin/Leetcode/blob/master/Experience/Uber%E9%9D%A2%E7%BB%8F%E9%9B%86%E5%90%88.py
