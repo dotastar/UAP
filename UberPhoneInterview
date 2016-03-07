@@ -134,3 +134,19 @@ OOD card deck，要现场deug，需要能运行
 
 17.
 distributed key-value store
+
+
+18.
+mirror tree， uber电面是要compile的，不像其他的，写写算法就行，之前没意识到, 
+solution 
+TreeNode mirror(root) 
+node=copy(root); 
+node.left=mirror(root.right); 
+node.right=mirror(root.left); 
+return node;
+
+
+19.
+如何实现Asynchronous service call？如何retry？讨论了一下Service oriented architecture的好处和弊端。 
+solution: callback+multithread, retry 就再加一个thread
+design，shortened url
