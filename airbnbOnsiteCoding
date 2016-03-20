@@ -1,47 +1,48 @@
 1. WordBreak
 2. Text Justification
-3. Alien Dictionary (leetcode 上要钱题)
-  http://www.cnblogs.com/jcliBlogger/p/4758761.html
-4. Word ladder II
-5. 2D array, 访问顺序必须是‘回’字的方式，就是从外圈转到里圈，写出class,
+3. Word ladder II
+4. 2D array, 访问顺序必须是‘回’字的方式，就是从外圈转到里圈，写出class,
   Iterator, hasNext(), next().
+5. edit distance
 6. leetcode anagram 的一题变种
-7.  boggle game, 但是呢比如你现在走了一个词apple, 
+7. boggle game, 但是呢比如你现在走了一个词apple, 
   那么a, p, p, l, e这几个char的位置不能继续用了。
   于是给你一个board, 一个dict让你计算最多能有多少个valid单词出现在这个Board上面
-8. 题目是给定一个word list 和一个target word，要求输出在word list 里跟target word的edit distance 相差不大于k的所有words。
+8. regex match, slightly complicated version of http://leetcode.com/2011/09/regular-expression-matching.html
+given a string and a pattern, returns a booleanindicating whether the input matches the pattern.
+   By simple, we mean that the regex can only contain special character: * (star), . (dot), + (plus). 
+   The star means what you'd expect, that there will be zero or more of previous character in that place in the pattern. 
+   The dot means any character for that position. The plus means one or more of previous character in that place in the pattern. 
+9. Alien Dictionary (leetcode 上要钱题)
+  http://www.cnblogs.com/jcliBlogger/p/4758761.html
+
+10. 题目是给定一个word list 和一个target word，要求输出在word list 里跟target word的edit distance 相差不大于k的所有words。
   程序是要从头到尾都要写，包括main函数和test数据。写完后他问有没有
   更好的解法，我说可以用trie，但是我不觉得我能在剩余时间里写得出来基于trie的解
   法，就大致说了一下我认为的思路。在此也求大牛给一个基于trie解法的code。
   link: http://www.mitbbs.com/article_t/JobHunting/32692817.html
-9. regex match, slightly complicated version of http://leetcode.com/2011/09/regular-expression-matching.html
-10.find maxium square inside a sqaure, similar to http://stackoverflow.com/questions/1726632/dynamic-programming-l
-argest-square-block
-11. edit distance
-12. 实现Regular expression match，比Leetcode的原题多一两个通配符
-   given a string and a pattern, returns a booleanindicating whether the input matches the pattern.
-   By simple, we mean that the regex can only contain special character: * (star), . (dot), + (plus). 
-   The star means what you'd expect, that there will be zero or more of previous character in that place in the pattern. 
-   The dot means any character for that position. The plus means one or more of previous character in that place in the pattern.
 
-13. Store a set of sudden-death tournament results in a compact format (eg. a bit array) 
+11.find maxium square inside a sqaure, similar to http://stackoverflow.com/questions/1726632/dynamic-programming-l
+argest-square-block
+
+
+12. Store a set of sudden-death tournament results in a compact format (eg. a bit array) 
   and a set of predicted match results (also in a bit array). Score the predictions, 
   giving one point per correctly guessed match, without unpacking the bit array into a more convenient format
   (ie. you have to traverse the tree in-place).  
   
-14. Sort a list of numbers in which each number is at a distance k from its actual position 
+13. Sort a list of numbers in which each number is at a distance k from its actual position 
 
-
-13. find all the combinations of a string in lowercase and uppercase. 
+14. find all the combinations of a string in lowercase and uppercase. 
   For example, string "ab" -> "ab", "Ab", "aB", "AB". So, you will have 2^n (n = number of chars in the string) output strings. 
   The goal is for you to test each of these string and see if it match a hidden string.
   
-14. You have a plain with lots of rectangles on it, find out how many of them intersect  
-15. Given a dictionary, and a matrix of letters, find all the words in the matrix that are in the dictionary. 
+15. You have a plain with lots of rectangles on it, find out how many of them intersect  
+16. Given a dictionary, and a matrix of letters, find all the words in the matrix that are in the dictionary. 
 (Going across, down or diagonally)  
 
 
-16.meeting room 找T1-T2内所有人空的时间段
+17.meeting room 找T1-T2内所有人空的时间段
   给一组meetings（每个meeting由start和end时间组成）。求出在所有输入meeting时间段内没有会议，也就是空闲的时间段。
   每个subarray都已经sort好
   举例：
@@ -52,8 +53,8 @@ argest-square-block
   ]
   返回
   [[4, 6], [7, 9]]
-17. 电话号码和计费的一个log, 去parse 看规定时间内哪个号码产生费用最高。
-18. john’s travel city: a1 a2 c2 h8 j9
+18. 电话号码和计费的一个log, 去parse 看规定时间内哪个号码产生费用最高。
+19. john’s travel city: a1 a2 c2 h8 j9
   tom’s travel city: b1 a1 c3 z5
   kate travel city: a2 a1 h8 x8
   给你一个人john, 以及他的一堆朋友，让你计算出来和他travel的city相似度大于75%的所有朋友，并且根据这个相似度对朋友排序
