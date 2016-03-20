@@ -1,0 +1,31 @@
+1. Ping server: output the timestamp offset
+2. 写echo TCP client， 向面试官的server发请求， 读回数据。地里比较少人说这种，
+ 我来详细说一下， 情境是这样的： 想象你开车， 踩下油门，车会加速，放开油门，车会减速。 client向server发的请求有以下2种： 
+（a）STATUS –表示查询现在车的速度和踩下踏板的压力； 
+（b）THROTTLE 50.1 — 这条指令是“THROTTLE” 加上一个数字， 表示我现在将踩油门的压力调为50.1
+
+EXAMPLE: 比如在telnet中
+STATUS
+0.0 0.0 (这行是server返回的， 第一个数字表示压力，第二个数字表示速度)
+THROTTLE 50.1 (这个指令发出 server没有返回)
+STATUS
+50.1 3.75 (可以看到速度在缓慢上升)
+STATUS (过几秒后，你又发STATUS指令过去)
+50.1 15.98 (速度依旧上升。。。)
+对就是这样，像是简单物理实验。
+
+写完TCP client后，要求是写一个方法将速度控制到达一个target speed
+
+最后一个问题是求这个 delta力 和 delta速度 之间的函数关系。。。。。。。。醉了。我物理还给老师了。。。。。。时间不够了
+
+3.有很多个sorted queue存在不同服务器上，如何有效的读取到一个 sorted 大queue
+里 (google也面到了这题）
+
+4. 设计db, 如何存取房东和房客的reviews, 如何maintain他们之间的关系。
+
+5. 设计一个distributed cache. 回答这类题目需要对分布式系统有一定了解，小编觉得以下几点是需要讲清楚的：
+Distribute策略：当Cache数据量巨大的时候，需要用多个Node来存储Cache。由于Cache本质上是Key-value-pair，那么可以通过对Key进行类似Hash的Sharding可以决定Value需要存储/读取的Node.
+Cache策略：基本上就是Pull (on-demand)/Push(regular update)的区别。具体情况要考虑需求的具体情况，比如对与Cache数据实时性的要求，对于Performance要求等，一定程度上也考察面试者的沟通能力。
+Failure case以及Scalability的讨论，主要是展示面试者思考问题的全面性。
+
+6. Describe what happens when you enter a url in the web browser 
