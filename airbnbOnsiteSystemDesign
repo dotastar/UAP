@@ -29,3 +29,5 @@ Cache策略：基本上就是Pull (on-demand)/Push(regular update)的区别。�
 Failure case以及Scalability的讨论，主要是展示面试者思考问题的全面性。
 
 6. Describe what happens when you enter a url in the web browser 
+
+7. rebuild Twitter from the ground up scaling/architecture question
