@@ -29,7 +29,7 @@ argest-square-block
 12. Store a set of sudden-death tournament results in a compact format (eg. a bit array) 
   and a set of predicted match results (also in a bit array). Score the predictions, 
   giving one point per correctly guessed match, without unpacking the bit array into a more convenient format
-  (ie. you have to traverse the tree in-place).  
+  (ie. you have to traverse the tree in-place).  ???? XOR?
   
 13. Sort a list of numbers in which each number is at a distance k from its actual position 
 
@@ -58,3 +58,4 @@ argest-square-block
   tom’s travel city: b1 a1 c3 z5
   kate travel city: a2 a1 h8 x8
   给你一个人john, 以及他的一堆朋友，让你计算出来和他travel的city相似度大于75%的所有朋友，并且根据这个相似度对朋友排序
+20. implementing a simple socket based client (could lookup docs online).
