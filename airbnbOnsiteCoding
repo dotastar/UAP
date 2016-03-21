@@ -32,6 +32,7 @@ argest-square-block
   (ie. you have to traverse the tree in-place).  ???? XOR?
   
 13. Sort a list of numbers in which each number is at a distance k from its actual position 
+     or Sort a nearly sorted (or K sorted) array
 
 14. find all the combinations of a string in lowercase and uppercase. 
   For example, string "ab" -> "ab", "Ab", "aB", "AB". So, you will have 2^n (n = number of chars in the string) output strings. 
